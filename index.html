@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página con Menú Desplegable y Productos</title>
+
+  <!-- Importar Google Fonts para Cormorant Garamond -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300&display=swap');
+
+    /* Establecer estilos generales */
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative; /* Asegura que las capas ocupen toda la altura */
+    }
+
+    /* Capa de fondo principal */
+    .background-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('WhatsApp Image 2024-06-16 at 19.46.09.jpeg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      z-index: -1; /* Asegura que esté detrás de todo */
+    }
+
+    /* Capa de fondo secundaria */
+    .overlay-layer {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("WhatsApp\ Image\ 2024-06-16\ at\ 21.38.32.jpeg"); /* Cambia por la URL de tu segunda imagen */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      opacity: 0.65; /* Ajusta la opacidad según sea necesario */
+      z-index: 0; /* Asegura que esté detrás de la capa principal */
+    }
+
+    /* Estilos adicionales para el menú desplegable */
+    .sidebar {
+      padding-left: 0;
+      height: 100%;
+      width: 0;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      transition: width 0.5s;
+      padding-top: 60px;
+    }
+
+    .sidebar a:hover {
+      color: #f1f1f1;
+    }
+
+    .openbtn {
+      font-family: 'Cairo', sans-serif;
+      font-size: 20px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      width: 100px;
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      transition: background-color 0.3s;
+    }
+
+    .openbtn:hover {
+      background-color: #444;
+    }
+
+    .close-btn {
+      color: white;
+      cursor: pointer;
+      padding: 90%;
+    }
+
+    ul {
+      position: relative;
+      font-family: 'Zilla Slab', serif;
+      text-decoration: none;
+    }
+
+    ul li {
+      list-style: none;
+      text-align: center;
+    }
+
+    ul li a {
+      font-family: 'Cairo', sans-serif;
+      color: #333;
+      text-decoration: none;
+      font-size: 2.2em;
+      padding: 5px 20px;
+      display: inline-flex;
+      font-weight: 700;
+      transition: 0.5s;
+    }
+
+    ul:hover li a {
+      color: #0002;
+    }
+
+    ul li:hover a {
+      color: #000;
+      background: transparent;
+    }
+
+    ul li a:before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 40%;
+      transform: translate(-50%, -50%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 5em;
+      color: rgba(0, 0, 0, 0.1);
+      border-radius: 50%;
+      z-index: -1;
+      opacity: 0;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 500px;
+      transition: letter-spacing 0.5s, left 0.5s;
+    }
+
+    ul li a:hover:before {
+      content: attr(data-text);
+      opacity: 1;
+      left: 70%;
+      letter-spacing: 20px;
+      width: 2500px;
+      height: 1800px;
+    }
+
+    ul li:nth-child(6n + 1) a:before,
+    ul li:nth-child(6n + 2) a:before,
+    ul li:nth-child(6n + 3) a:before {
+      background: #635d64;
+    }
+
+    /* Estilo para que el menú ocupe toda la pantalla al desplegarse */
+    .sidebar.active {
+      width: 100%;
+    }
+
+    /* Estilo para "RICH" y "All in" en Cormorant Garamond */
+    #inicio .home h1,
+    #inicio .home p {
+      font-family: 'Times New Roman', Times, serif;
+      font-weight: 300;
+      color: #fff;
+      /* Color blanco */
+      text-align: center;
+    }
+
+    .bottom-right-text {
+      position: absolute;
+      bottom: 0;
+      right: 8px;
+      background-color: #5c5b5b57; /* Color de fondo con transparencia */
+      padding: 0px;
+      border-radius: 0px;
+      color: #ffffff; /* Color del texto */
+      font-size: 12px; /* Tamaño de fuente */
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Capa de fondo principal -->
+  <div class="background-layer"></div>
+
+  <!-- Capa de fondo secundaria con menos visibilidad -->
+  <div class="overlay-layer"></div>
+
+  <!-- Botón para abrir el menú -->
+  <button class="openbtn" onclick="openNav()">☰</button>
+
+  <!-- Menú lateral -->
+  <div id="mySidebar" class="sidebar">
+    <span class="close-btn" onclick="closeNav()">&times;</span>
+    <ul>
+      <li><a target="_blank" href="index.html" data-text="Home">Home</a></li>
+      <li><a target="_blank" href="productos/productos.html" data-text="Productos">Productos</a></li>
+      <li><a target="_blank" href="contacto/contacto.html" data-text="Contacto">Contacto</a></li>
+    </ul>
+  </div>
+
+
+  <!-- Texto en la esquina inferior derecha -->
+  <div class="bottom-right-text">
+    <h3>Due to the current competition, we decided to be the best...</h3> 
+  </div>
+
+
+  <script>
+    // Función para abrir el menú lateral
+    function openNav() {
+      document.getElementById("mySidebar").classList.add('active');
+    }
+
+    // Función para cerrar el menú lateral
+    function closeNav() {
+      document.getElementById("mySidebar").classList.remove('active');
+    }
+  </script>
+
+</body>
+
+</html>

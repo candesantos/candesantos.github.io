@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Drop</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #1f1f1f; /* Color de fondo oscuro */
+    color: #fff; /* Color de texto blanco */
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .producto {
+    border: 1px solid #444; /* Borde más oscuro */
+    padding: 10px;
+    background-color: #333; /* Fondo más oscuro */
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.2s ease-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra más suave */
+    overflow: hidden; /* Ocultar cualquier parte de la imagen que se salga del contenedor */
+  }
+
+  .producto:hover {
+    transform: scale(1.05); /* Hace que el producto se hinche al pasar el cursor */
+  }
+
+  .producto img {
+    width: 100%; /* Asegura que todas las imágenes ocupen el 100% del contenedor */
+    height: auto; /* Para mantener la relación de aspecto */
+    border-radius: 5px;
+    transition: transform 0.2s ease-out;
+  }
+
+  .producto:hover img {
+    transform: scale(1.1); /* Hace que la imagen se hinche un poco más al pasar el cursor */
+  }
+
+  .producto h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #fff; /* Texto blanco */
+  }
+
+  .producto p {
+    font-size: 1em;
+    color: #ccc; /* Color de texto más claro */
+    margin-bottom: 8px;
+  }
+
+  .producto span {
+    font-weight: bold;
+    color: #bbb; /* Color de texto más claro */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Producto 1 -->
+  <div class="producto">
+    <img src="imagenes/1.jpeg" alt="Producto 1">
+    <h3>Auto deportivo rojo</h3>
+    <p><span>Precio:</span> $99.99</p>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="producto">
+    <img src="imagenes/2.jpeg" alt="Producto 2">
+    <h3>SUV familiar azul</h3>
+    <p><span>Precio:</span> $129.99</p>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="producto">
+    <img src="imagenes/3.jpeg" alt="Producto 3">
+    <h3>Auto compacto blanco</h3>
+    <p><span>Precio:</span> $79.99</p>
+  </div>
+
+
+  <!-- Agrega más productos según sea necesario -->
+</div>
+
+</body>
+</html>

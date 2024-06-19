@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Productos - Cars</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background-color: #f0f0f0;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .producto {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+  }
+
+  .producto img {
+    max-width: 100%;
+    border-radius: 5px;
+  }
+
+  .producto h3 {
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #333;
+  }
+
+  .producto p {
+    font-size: 1em;
+    color: #777;
+  }
+
+  .producto span {
+    font-weight: bold;
+    color: #555;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Producto 1 -->
+  <div class="producto">
+    <img src="ruta-a-la-imagen-del-producto1.jpg" alt="Producto 1">
+    <h3>Nombre del Producto 1</h3>
+    <p><span>Precio:</span> $99.99</p>
+  </div>
+
+  <!-- Producto 2 -->
+  <div class="producto">
+    <img src="ruta-a-la-imagen-del-producto2.jpg" alt="Producto 2">
+    <h3>Nombre del Producto 2</h3>
+    <p><span>Precio:</span> $129.99</p>
+  </div>
+
+  <!-- Producto 3 -->
+  <div class="producto">
+    <img src="ruta-a-la-imagen-del-producto3.jpg" alt="Producto 3">
+    <h3>Nombre del Producto 3</h3>
+    <p><span>Precio:</span> $79.99</p>
+  </div>
+
+  <!-- Agrega más productos según sea necesario -->
+</div>
+
+</body>
+</html>

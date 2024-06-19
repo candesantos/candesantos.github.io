@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Botones con Imagen de Fondo Oscurecida y Escalado</title>
+  <style>
+    #enlace-sin-subrayado {
+      text-decoration: none;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #000000;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      width: 80%;
+      max-width: 800px;
+      margin-top: 20px;
+      gap: 20px;
+
+    }
+
+    .button {
+      position: relative;
+      width: 200px;
+      height: 400px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      color: #fff;
+      text-transform: uppercase;
+      cursor: pointer;
+      background-size: cover;
+      background-position: center;
+      border: none;
+      outline: none;
+      transition: transform 0.2s ease, opacity 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 35px;
+      overflow: hidden;
+    }
+
+    .button::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      z-index: 1;
+    }
+
+    .button:hover::after {
+      opacity: 1;
+    }
+
+    .button:hover {
+      transform: scale(1.1);
+    }
+
+    .button-text {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Background images for each button */
+    .button-freestyles {
+      background-image: url("imagenes/gangster.jpeg");
+    }
+
+    .button-cars {
+      background-image: url("imagenes/cars.jpeg");
+    }
+
+    .button-new-drop {
+      background-image: url("imagenes/newdrop.jpeg");
+    }
+
+    .button-statues {
+      background-image: url("imagenes/statues.jpeg");
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="button-container">
+    <!-- Button New Drop -->
+    <a href="https://rich30.mitiendanube.com/new-drop/" id="enlace-sin-subrayado" class="button button-new-drop">
+      <span class="button-text">New Drop</span>
+    </a>
+
+    <!-- Button Freestyles -->
+    <a href="https://rich30.mitiendanube.com/gangster/" id="enlace-sin-subrayado" class="button button-freestyles">
+      <span class="button-text">Gangster</span>
+    </a>
+
+    <!-- Button Cars -->
+    <a href="https://rich30.mitiendanube.com/cars/" id="enlace-sin-subrayado" class="button button-cars">
+      <span class="button-text">Cars</span>
+    </a>
+
+    <!-- Button Statues -->
+    <a href="https://rich30.mitiendanube.com/statues/" id="enlace-sin-subrayado" class="button button-statues">
+      <span class="button-text">Statues</span>
+    </a>
+
+  </div>
+
+</body>
+
+</html>
